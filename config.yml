@@ -1,0 +1,13 @@
+# Path from root folder
+
+paths:
+  data_sources:
+    articles: 'data/source/dataset_business_technology_cybersecurity.pickle'
+    stopwords: 'data/source/stopwords.txt'
+  output:
+    clusters: 'data/output/clusters.pickle'
+  test: 'data/test/test_data.json'
+
+parameters:
+  connectivity_threshold: 100
+

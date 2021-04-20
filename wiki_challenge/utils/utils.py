@@ -1,0 +1,52 @@
+from collections import Counter
+import re
+import copy
+
+
+# ** Helper functions
+
+# function displaying progress bar
+def print_progress_bar(iteration, total, prefix='', suffix='', decimals=1, length=100, fill='█', printEnd="\r"):
+    """
+    Call in a loop to create terminal progress bar
+    @params:
+        iteration   - Required  : current iteration (Int)
+        total       - Required  : total iterations (Int)
+        prefix      - Optional  : prefix string (Str)
+        suffix      - Optional  : suffix string (Str)
+        decimals    - Optional  : positive number of decimals in percent complete (Int)
+        length      - Optional  : character length of bar (Int)
+        fill        - Optional  : bar fill character (Str)
+        printEnd    - Optional  : end character (e.g. "\r", "\r\n") (Str)
+    """
+    percent = ("{0:." + str(decimals) + "f}").format(100 *
+                                                     (iteration / float(total)))
+    filledLength = int(length * iteration // total)
+    bar = fill * filledLength + '-' * (length - filledLength)
+    print(f'\r{prefix} |{bar}| {percent}% {suffix}', end=printEnd)
+    # Print New Line on Complete
+    if iteration == total:
+        print()
+
+
+# *******************
+# linspace function
+def linspace(start, stop, n):
+    """Linspace function
+
+    :param start: start number
+    :type start: int
+    :param stop: stop number
+    :type stop: int | float
+    :param n: number of points between start and stop
+    :type n: int
+    :yield: point between start and stop
+    :rtype: int
+    """
+    if n == 1:
+        yield int(stop)
+        return
+    h = (stop - start) / (n - 1)
+    for i in range(n):
+        yield int(start + h * i)
+# *******************
